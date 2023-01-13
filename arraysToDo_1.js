@@ -20,6 +20,31 @@ function pushFront(arr, newNum) {
 console.log(pushFront([5, 7, 2, 3], 8))
 
 
+// Min to Front
+// Given an array of comparable values, move the lowest element to array’s front, shifting backward any elements previously ahead of it. Do not otherwise change the array’s order. Given [4,2,1,3,5], change it to [1,4,2,3,5] and return it. As always, do this without using built-in functions.
+
+const minToFront = (arr) =>{
+    let min = arr[0]
+    let idx = 0
+    // let swapVal = 0
+    for(let i = 0; i < arr.length; i++){
+        if(min > arr[i]){
+            min = arr[i]
+            idx = i
+        }
+    }
+    for(let x = idx; x > 0; x--){
+        arr[x] = arr[x - 1];
+        arr[x-1] = min
+    }
+    return arr
+    // swapVal = arr[0]
+    // arr[idx] = swapVal
+    // arr[0] = min
+}
+
+console.log(minToFront([4,2,1,3,5]))
+
 // // // Pop Front
 // // // Given an array, remove and return the value at the beginning of the array. Prove the value is removed from the array by printing it. You may use .pop(), you are able do this without it though!
 
